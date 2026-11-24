@@ -4,7 +4,7 @@ A recovered vertex returns to susceptible each step with probability w (mean imm
 reinfections are possible; w = 0 is the notebook's class model. The script runs 30 seeds for each w, writes
 results/m10-results.json (every number the report quotes) and three figures in figures/m10-*.png.
 
-Run:  /home/seba/.venvs/cccs610/bin/python -I code/m10_epidemic.py     (from the assignment-3 folder)
+Run:  python -I code/m10_epidemic.py     (from the assignment-3 folder)
 """
 
 import json

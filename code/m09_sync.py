@@ -6,7 +6,7 @@ checks the port against a transcription of the notebook's own code, runs a grid 
   results/m09-results.json   every number the report quotes
   figures/m09-heatmap.png, m09-timeseries.png, m09-snapshots.png
 
-Run: /home/seba/.venvs/cccs610/bin/python -I code/m09_sync.py   (from the assignment-3 folder)
+Run: python -I code/m09_sync.py   (from the assignment-3 folder)
 """
 
 import json
@@ -387,7 +387,7 @@ def cell_summary(rows, count, radius):
         "lcc_share": describe([row["lcc_share"] for row in rows]),
         "mean_isolated_flies": float(np.mean([row["n_isolated"] for row in rows])),
         "n_runs_with_isolated_fly": int(sum(row["n_isolated"] > 0 for row in rows)),
-        "n_runs_connected": int(sum(row["lcc_share"] == 1.0 for row in rows)),
+        "n_runs_connected": int(sum(row["lcc_share"] >= 1.0 for row in rows)),
         "mean_degree": float(np.mean([row["mean_degree"] for row in rows])),
     }
 
@@ -410,7 +410,7 @@ def connectivity_analysis(runs):
             r_c[m] -= r_on[m].mean()
     within = pearson(share_c, r_c) if share_c.std() > 0 and r_c.std() > 0 else None
 
-    connected = share == 1.0
+    connected = share >= 1.0
     return {
         "n_runs": len(runs),
         "pearson_r_vs_lcc_share": pearson(r_on, share),

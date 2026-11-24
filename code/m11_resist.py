@@ -6,7 +6,7 @@ vertices one at a time until none is left under two policies (uniform at random,
 proportional to the current degree), and records the number of components and the order of the largest
 component at every step, for 30 seeds. Writes results/m11-results.json and figures/m11-*.png.
 
-Run:  /home/seba/.venvs/cccs610/bin/python -I code/m11_resist.py   (from the deliverable folder, or by absolute path)
+Run:  python -I code/m11_resist.py   (from the deliverable folder, or by absolute path)
 """
 
 import json
